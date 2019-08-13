@@ -1,0 +1,83 @@
+.root {
+  background: url(https://cdnb.artstation.com/p/challenges/images/000/000/019/medium/Ancient_Civilizations_Game_Level_Art.jpg?1486831759)
+    no-repeat fixed;
+  background-size: cover;
+}
+/* Header/Blog Title */
+.header {
+  padding: 0px;
+  font-size: 75px;
+  text-align: center;
+  font-family: "bankgothic";
+}
+.leftcolumn {
+  opacity: 0.8;
+  float: left;
+  width: 100%;
+}
+h2 {
+  font-weight: bold;
+  color: #fff;
+  font-size: 50px;
+}
+/* Right column */
+.rightcolumn {
+  opacity: 0.8;
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+}
+
+/* Fake image */
+.fakeimg {
+  opacity: 1;
+  background-color: rgb(8, 0, 0);
+  width: 95%;
+  padding: 20px;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+/* Add a card effect for articles */
+.card {
+  background-color: gray;
+  padding: 20px;
+  margin-top: 10px;
+  width: 95%;
+  text-align: center;
+  font-size: 35px;
+}
+.smallcard {
+  margin-top: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+}
+/* Clear floats after the columns */
+.row:after {
+  opacity: 0.8;
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  opacity: 0.8;
+  justify-content: flex-start;
+  padding: 20px;
+  text-align: center;
+  background: black;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 1080px) {
+  .leftcolumn,
+  .rightcolumn {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+}

@@ -1,0 +1,97 @@
+<html>
+  <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+  <div class="root">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+    <head>
+      <title>WELCOME TO OW TEMPLE</title>
+      <script>
+        var doFetch = function() {
+          var data = {};
+          var name = document.getElementById("name-field").value;
+          var email = document.getElementById("email-field").value;
+
+          data.name = name;
+          data.email = email;
+          fetch("new-account", {
+            method: "POST", // or 'PUT'
+            body: JSON.stringify(data), // data can be `string` or {object}!
+            headers: {
+              "Content-Type": "application/json"
+            }
+          }).then(response => {
+            return response.json().then(json => {
+              window.location = json.url;
+            });
+          });
+        };
+      </script>
+    </head>
+    <body>
+      <br />
+      Sign Up:
+
+      <input type="text" id="name-field" name="name" placeholder="First Name" />
+
+      <input
+        type="email"
+        id="email-field"
+        name="email"
+        placeholder="Email Address"
+      />
+      <button type="submit" onclick="doFetch()"><b>Create New User</b></button>
+      <button type="reset">Cancel</button>
+      <div class="header">
+        <h1>OW TEMPLE</h1>
+      </div>
+      <div class="row">
+        <div class="leftcolumn">
+          <div class="card">
+            <h2>Latest News</h2>
+
+            <div class="fakeimg" style="height:330px;">
+              <iframe
+                width="90%"
+                height="315"
+                src="https://www.youtube.com/embed/E1oMCfY9ymo"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Your Overwatch</h2>
+            <div class="fakeimg" style="height:330px;">
+              <iframe
+                width="90%"
+                height="315"
+                src="https://www.youtube.com/embed/J0uFqUYAx-8"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="rightcolumn">
+          <div class="smallcard">
+            <h3>About Me</h3>
+            <p>
+              My name is Mich and I am a fan of Overwatch. I've been playing the
+              game for a long time now and wanted to create a hub for all my
+              favorite channels.
+            </p>
+          </div>
+          <div class="smallcard">
+            <h3>Follow Me</h3>
+            <p>Twitch: allidoiswinston</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <h3>I DO NOT OWN ANY OF THIS CONTENT</h3>
+      </div>
+    </body>
+  </div>
+</html>
