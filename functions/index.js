@@ -3,9 +3,7 @@ const express = require("express");
 const app = express();
 var bodyParser = require("body-parser");
 const port = 3000;
-const functions = require("firebase-functions");
-const admin = require("firebase-admin");
-admin.initializeApp();
+
 app.use(express.static("public"));
 app.use(bodyParser.json());
 // for parsing application/json
@@ -35,4 +33,4 @@ app.post("/new-account", myPostFunction);
 
 exports.app = functions.https.onRequest(app);
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, (5000) => console.log(`Example app listening on port ${port}!`));

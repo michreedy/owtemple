@@ -1,65 +1,97 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+  <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+  <div class="root">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+    <head>
+      <title>WELCOME TO OW TEMPLE</title>
+      <script>
+        var doFetch = function() {
+          var data = {};
+          var name = document.getElementById("name-field").value;
+          var email = document.getElementById("email-field").value;
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/6.4.0/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/6.4.0/firebase-auth.js"></script>
-    <script defer src="/__/firebase/6.4.0/firebase-database.js"></script>
-    <script defer src="/__/firebase/6.4.0/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/6.4.0/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+          data.name = name;
+          data.email = email;
+          fetch("new-account", {
+            method: "POST", // or 'PUT'
+            body: JSON.stringify(data), // data can be `string` or {object}!
+            headers: {
+              "Content-Type": "application/json"
+            }
+          }).then(response => {
+            return response.json().then(json => {
+              window.location = json.url;
+            });
+          });
+        };
+      </script>
+    </head>
+    <body>
+      <br />
+      Sign Up:
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+      <input type="text" id="name-field" name="name" placeholder="First Name" />
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+      <input
+        type="email"
+        id="email-field"
+        name="email"
+        placeholder="Email Address"
+      />
+      <button type="submit" onclick="doFetch()"><b>Create New User</b></button>
+      <button type="reset">Cancel</button>
+      <div class="header">
+        <h1>OW TEMPLE</h1>
+      </div>
+      <div class="row">
+        <div class="leftcolumn">
+          <div class="card">
+            <h2>Latest News</h2>
 
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+            <div class="fakeimg" style="height:330px;">
+              <iframe
+                width="90%"
+                height="315"
+                src="https://www.youtube.com/embed/E1oMCfY9ymo"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Your Overwatch</h2>
+            <div class="fakeimg" style="height:330px;">
+              <iframe
+                width="90%"
+                height="315"
+                src="https://www.youtube.com/embed/J0uFqUYAx-8"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="rightcolumn">
+          <div class="smallcard">
+            <h3>About Me</h3>
+            <p>
+              My name is Mich and I am a fan of Overwatch. I've been playing the
+              game for a long time now and wanted to create a hub for all my
+              favorite channels.
+            </p>
+          </div>
+          <div class="smallcard">
+            <h3>Follow Me</h3>
+            <p>Twitch: allidoiswinston</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <h3>I DO NOT OWN ANY OF THIS CONTENT</h3>
+      </div>
+    </body>
+  </div>
 </html>
