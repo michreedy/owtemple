@@ -1,14 +1,16 @@
-const functions = require("firebase-functions");
+const functions = require('firebase-functions');
+const admin = require("firebase-admin");
 const express = require("express");
 const app = express();
 var bodyParser = require("body-parser");
-const port = 3000;
 
-app.use(express.static("public"));
-app.use(bodyParser.json());
-// for parsing application/json
 
-let database = {};
+admin.initializeApp();
+
+
+
+FirebaseFirestore.initializeApp(firebaseConfig);
+var db = firebase.firestore();
 
 const myPostFunction = (request, response) => {
   const user = request.body;
@@ -31,6 +33,4 @@ app.get("/account/:name", (req, res) => {
 });
 app.post("/new-account", myPostFunction);
 
-exports.app = functions.https.onRequest(app);
-
-app.listen(port, (5000) => console.log(`Example app listening on port ${port}!`));
+app.listen(port, (3000) => console.log(`Example app listening on port ${port}!`));
