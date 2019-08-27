@@ -1,5 +1,6 @@
 const functions = require("firebase-functions");
 const express = require("express");
+
 const app = express();
 var bodyParser = require("body-parser");
 const port = 3000;
@@ -9,7 +10,8 @@ app.use(express.static("public"));
 app.use(bodyParser.json());
 // for parsing application/json
 
-let database = {};
+FirebaseFirestore.initializeApp(firebaseConfig);
+var db = firebase.firestore();
 
 const myPostFunction = (request, response) => {
   const user = request.body;
